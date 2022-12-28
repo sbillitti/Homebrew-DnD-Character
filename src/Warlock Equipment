@@ -1,0 +1,124 @@
+Hood of Refracted Shadows (Head)
++1 AC
++2 Charisma
++8 Constitution
++9% Critical Strike Chance
++6% Mastery
+______________________________________________________________________
+int[] neck
+Sin Stained Pendant (Neck)
++2 Constitution
++16% Haste
++7% Mastery
+______________________________________________________________________________
+int[] shoulders
+Mantle of Ephemeral Visages (Shoulder)
++10 AC
++16 Charisma
++24 Constitution
++32% Versatility
++56% Mastery
++40% Speed
++40% Avoidance
+______________________________________________________________________________
+int[] chest
+Rainshadow Hauberk (Chest)
++1 AC
++2 Charisma
++3 Constitution
++6% Critical Strike Chance
++8% Haste
+______________________________________________________________________________
+int[] back
+Scarred Cloak of the Atoned (Back) (UPGRADED)
++4 AC
++16 Charisma
++16 Constitution
++28% Critical Strike Chance
++20% Mastery
++20% Critical Strike Damage
+______________________________________________________________________________
+int[] wrist
+Pit Fighter's Wristguards (Wrist)
++1 AC
++1 Charisma
++1 Constitution
++4% Versatility
++2% Mastery
+______________________________________________________________________________
+int[] waist
+Grime-skin Bracers (Wrist)
++8 Charisma
++8 Constitution
++16% Critical Strike Chance
++14% Mastery
++10% Critical Strike Damage
+Passive: Curse of the Mawsworn: Take twice the amount of damage, but every turn spent in combat, gain 20% Critical Strike Chance. Resets at the end of combat
+______________________________________________________________________________
+int[] Mainhand
+The Soulshaper (Main-hand)
++60 magic staff
++80 Charisma
++80 Constitution
++100% Critical Strike Chance
++80% Mastery
+Passive: Rune Slots- You have 11 empty rune slots. When you get the killing blow against an enemy, you can choose to store their soul in one of the runes. Gain an effect based on the soul stored
+Rune of Echelon- Every time you critically strike, increase a random other secondary stat by 100% for 6 seconds. This effect can stack, but the duration cannot be increased Rune of the Venthyr Swordsman- Your critical strikes cause the target to bleed, causing them to suffer 150% of the damage taken from a crit on their next turn
+Rune of Bloodsucking: Gain 80% leech. Your Drain Life deals an additional 128d6 damage
+Rune of the Stoneborn Guardians- As an action, turn to stone, reducing your movement speed to 0, but increasing your maximum health by 550%, until the end of your next turn
+Rune of the First Talon- You use Char instead of Dexterity for your initiative. If you attack an enemy before they take their first turn in combat, your damage from that attack is quintupled
+Rune of Defenseless Beasts: Gain 32 health
+Rune of Big Beast: Increase your current and maximum health by 200% Rune of Bonestorm:
+Sprout 2 additional heads. Each additional head has one attack, that they can use to cast spells. They are also affected by your Haste +10%
+Rune of the Enraged Spirit: Go into a Frothing Rage, causing your attacks to emit in a 40 foot radius
+Rune of the blood god: Permanently Lose X% of your maximum health. An enemy of your choice lose X/2 % maximum health. Gain a blood shield equal to 4X% of your maximum health that lasts until destroyed. Can be used once per long rest
+______________________________________________________________________________
+int[] offhand
+______________________________________________________________________________
+int[] gloves
+Stonefield Shaper's Mitts (Hands)
++2 Charisma
++3 Constitution
++7% Critical Strike Chance
++5% Haste
+______________________________________________________________________________
+int[] legs
+Gormshell Greaves (Legs)- Looted from Tre’Dova
+ +2 AC
++1 Charisma
++2 Constitution
++4% Haste
++6% Mastery
+______________________________________________________________________________
+int[] boots
+Shardskin Sabatons (Feet)
++1 AC
++1 Charisma
++3 Constitution
++5% Critical Strike Chance
++7% Mastery
+______________________________________________________________________________
+int[] trinket_1
+Sunblood Amethyst (Trinket)
++11% Haste
+Active: Tear anima from your target, dealing 48d12 Necrotic damage (on a failed Wis saving throw). In addition, form a font of power at your feet, increasing your Char by 30 for 18 seconds while you stand within it
+______________________________________________________________________________
+int[] trinket_2
+Unbound Changeling (Trinket)- Looted from Ingra Malloch
++2 Charisma
+Your spells and abilities have a 20% chance to give you
+23% Haste for
+12 seconds. Multiple procs reset the duration
+______________________________________________________________________________
+int[] ring_1
+Signet of the False Accuser (Ring)
++2 Constitution
++7% Haste
++16% Mastery
+Ring of Invisibility- Turns invisible
+______________________________________________________________________________
+int[] ring_2
+Arachnid Cipher Ring (Ring)
++1 Constitution
++7% Critical Strike Chance
++5% Haste
