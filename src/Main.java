@@ -14,68 +14,68 @@ public class Main {
         int numMastery = 0;  int criticalStrikeDamage = 0; int numVersatility=0; int numAvoidance=0;    int numHaste = 0; int numSpeed = 0; int critnum = 0;
         int altCrit; int dice; int Ddice;
         Scanner scan = new Scanner(System.in); Scanner scaned = new Scanner(System.in);
-        String inttransition;
+        String intTransition; String statstoInt;
 
-        String stringtoStats[] = new String[124];
+        LinkedList<String>  stringtoStats = new LinkedList<>();
         try {
+            int i = 0;
             File test = new File("C:\\Users\\smbil\\IdeaProjects\\Homebrew DnD Character\\src\\Warlock Equipment");
             Scanner input = new Scanner(test);
-            int i = 0;
             while (input.hasNextLine()) {
-                stringtoStats[i] = input.nextLine();
+                stringtoStats.add(i,input.nextLine());
                 i++;
             }
         }
         catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        for(int j=0; j< stringtoStats.length; j++ ) {
-            stringtoStats[j] = stringtoStats[j].replace("+", "");
-            stringtoStats[j] = stringtoStats[j].replace("%", "");
-            stringtoStats[j] = stringtoStats[j].replace(" ", "");
-            if (stringtoStats[j].contains("AC")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                armorClass += Integer.parseInt(stringtoStats[j]);
+        for(int j=0; j< stringtoStats.size(); j++ ) {
+            statstoInt = stringtoStats.get(j).replace("+", "");
+            statstoInt = stringtoStats.get(j).replace("%", "");
+            statstoInt = stringtoStats.get(j).replace(" ", "");
+            if (statstoInt.contains("AC")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                armorClass += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("Charisma")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                charisma += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("Charisma")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                charisma += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("Constitution")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                constitution += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("Constitution")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                constitution += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("CriticalStrikeChance")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                critChance  += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("CriticalStrikeChance")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                critChance  += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("Mastery")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                numMastery  += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("Mastery")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                numMastery  += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("CriticalStrikeDamage")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                criticalStrikeDamage  += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("CriticalStrikeDamage")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                criticalStrikeDamage  += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("Versatility")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                numVersatility  += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("Versatility")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                numVersatility  += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("Haste")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                numHaste  += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("Haste")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                numHaste  += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("Avoidance")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                numAvoidance += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("Avoidance")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                numAvoidance += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("Speed")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                numSpeed  += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("Speed")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                numSpeed  += Integer.parseInt(statstoInt);
             }
-            if (stringtoStats[j].contains("magicstaff")) {
-                stringtoStats[j] = stringtoStats[j].replaceAll("[^0-9]", "");
-                magicStaff  += Integer.parseInt(stringtoStats[j]);
+            if (statstoInt.contains("magicstaff")) {
+                statstoInt = statstoInt.replaceAll("[^0-9]", "");
+                magicStaff  += Integer.parseInt(statstoInt);
             }
         }//takes 32-80 takes all the information that is needed from file and turns it into numbers for character stats
         //lines 81-90 is just initializing variables
@@ -90,7 +90,7 @@ public class Main {
         int Critting; int critDmg = ((criticalStrikeDamage-(criticalStrikeDamage % 5))/5); int DC= 8+Prof+Char;
 
         //int altCrit; int dice; int Ddice; int critnum;
-        int [] arrayDamage = new int[4];
+        int [] arrayDamage = new int[13];
         System.out.println(magicStaff);
         System.out.println(Char);
         String userimput;
@@ -152,8 +152,8 @@ public class Main {
 
                 if (userimput.equals("Drain")) {
                     System.out.println("What do you need to crit? Answer(1,2,3)");
-                    inttransition = scaned.next();
-                    altCrit = Integer.parseInt(inttransition);
+                    intTransition = scaned.next();
+                    altCrit = Integer.parseInt(intTransition);
                     Critting = (20 - critnum - altCrit);
                     System.out.println("you need a " + Critting + " to crit");
                     System.out.println("you rolled a: " + d20);
@@ -204,8 +204,8 @@ public class Main {
 
                 if (userimput.equals("Incinerate")) {
                     System.out.println("What do you need to crit? Answer(1,2,3)");
-                    inttransition = scaned.next();
-                    altCrit = Integer.parseInt(inttransition);
+                    intTransition = scaned.next();
+                    altCrit = Integer.parseInt(intTransition);
                     Critting = (20 - critnum - altCrit);
                     System.out.println("you need a " + Critting + " to crit");
                     System.out.println("you rolled a: " + d20);
@@ -231,8 +231,8 @@ public class Main {
 
                 if (userimput.equals("Conflagrate")) {
                     System.out.println("What do you need to crit? Answer(1,2,3)");
-                    inttransition = scaned.next();
-                    altCrit = Integer.parseInt(inttransition);
+                    intTransition = scaned.next();
+                    altCrit = Integer.parseInt(intTransition);
                     Critting = (20 - critnum - altCrit);
                     System.out.println("you need a " + Critting + " to crit");
                     System.out.println("you rolled a: " + d20);
@@ -265,8 +265,8 @@ public class Main {
 
                     if (userimput.equals("Incinerate")) {
                         System.out.println("What do you need to crit? Answer(1,2,3)");
-                        inttransition = scaned.next();
-                        altCrit = Integer.parseInt(inttransition);
+                        intTransition = scaned.next();
+                        altCrit = Integer.parseInt(intTransition);
                         Critting = (20 - critnum - altCrit);
                         System.out.println("you need a " + Critting + " to crit");
                         System.out.println("you rolled a: " + d20);
@@ -294,13 +294,13 @@ public class Main {
 
                     if (userimput.equals("Chaosa")) {
                         System.out.println("What do you need to crit? Answer(1,2,3)");
-                        inttransition = scaned.next();
-                        altCrit = Integer.parseInt(inttransition);
+                      //  intTransition = scaned.next();
+                     //   altCrit = Integer.parseInt(intTransition);
                         Critting = (20 - critnum - altCrit);
                         System.out.println("you need a " + Critting + " to crit");
                         System.out.println("you rolled a: " + d20);
                         for (Ddice = 0; Ddice < (critnum + altCrit); Ddice++) {
-                            r = Math.ceil((p * .05)); // p and r are math variables
+                            r = Math.ceil((p * .10)); // p and r are math variables
                             p = p + r;
                         }
                         r = Math.ceil((p * .25));
@@ -329,8 +329,8 @@ public class Main {
 
                 if (userimput.equals("Chaos1")) {
                     System.out.println("What do you need to crit? Answer(1,2,3)");
-                    inttransition = scaned.next();
-                    altCrit = Integer.parseInt(inttransition);
+                    intTransition = scaned.next();
+                    altCrit = Integer.parseInt(intTransition);
                     Critting = (20 - critnum - altCrit);
                     System.out.println("you need a " + Critting + " to crit");
                     System.out.println("you rolled a: " + d20);
@@ -368,8 +368,8 @@ public class Main {
 /*
                 if (userimput.equals("Immolate")) {
                     System.out.println("What do you need to crit?");
-                    inttransition = scaned.next();
-                    altCrit = Integer.parseInt(inttransition);
+                    intTransition = scaned.next();
+                    altCrit = Integer.parseInt(intTransition);
                     Critting = (20-critnum-altCrit);
                     System.out.println("you need a " + Critting + " to crit");
                     System.out.println("you rolled a: " + d20);
@@ -394,8 +394,8 @@ public class Main {
 */
                 if (userimput.equals("Shadowburn")) {
                     System.out.println("What do you need to crit? Answer(1,2,3)");
-                    inttransition = scaned.next();
-                    altCrit = Integer.parseInt(inttransition);
+                    intTransition = scaned.next();
+                    altCrit = Integer.parseInt(intTransition);
                     Critting = (20 - critnum - altCrit);
                     System.out.println("you need a " + Critting + " to crit");
                     System.out.println("you rolled a: " + d20);
