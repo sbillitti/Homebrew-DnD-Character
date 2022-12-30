@@ -4,17 +4,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-
-
 //Mastery: Chaotic EnergiesAt 1st Level when you choose this specialization, your critical strike chance ebbs
 // and flows between 5% and 15% ( 5% one turn, then 10%, then 15%, then 10%, then 5%).
 //Scepter of the Pyromaniac +3 magic staff (+3 to all attacks and damage, +3  to spell save DC) +2 Charisma +2 Constitution +5% Critical Strike Chance +3% Haste
-//strength6,dex16,con33,int9,wis12,Char31, haste, Mastery15, Versa, leech, Avoidance, int crit_dmg, crit chance
         int count = 0; int damage = 0; int d20; int Prof=5; int armorClass = 11; int charisma = 0; int constitution = 0; int magicStaff = 0; int critChance = 0;
         int numMastery = 0;  int criticalStrikeDamage = 0; int numVersatility=0; int numAvoidance=0;    int numHaste = 0; int numSpeed = 0; int critnum = 0;
-        int altCrit; int dice; int Ddice;
         Scanner scan = new Scanner(System.in); Scanner scaned = new Scanner(System.in);
-        String intTransition; String statstoInt;
+        String statstoInt;
 
         LinkedList<String>  stringtoStats = new LinkedList<>();
         try {
@@ -87,96 +83,77 @@ public class Main {
         int strng = (6-10)/2;  int dex = (16-3)/2;
         int con = (constitution-10)/2;    int Int = (6-10)/2;
         int wis = (6-10)/2;    int Char = (charisma-10)/2;
-        int Critting; int critDmg = ((criticalStrikeDamage-(criticalStrikeDamage % 5))/5); int DC= 8+Prof+Char;
+        int critDmg = ((criticalStrikeDamage-(criticalStrikeDamage % 5))/5); int DC= 8+Prof+Char;
 
         //int altCrit; int dice; int Ddice; int critnum;
         int [] arrayDamage = new int[13];
         System.out.println(magicStaff);
         System.out.println(Char);
-        String userimput;
+        System.out.println(critChance);
+        String userimput; int repeatSpells;
         System.out.println("Type Start to initiate battle");
         userimput = scan.nextLine();
         d20 = (int) (Math.random() * 20 + 1);
         System.out.println("Character stats are:     Armor Class: " + armorClass);
         System.out.println("Strength: " + strng + " Dextarity: " + dex + " Constitution: " + con);
         System.out.println("Inteligence: " + Int + " Wisdom; " + wis + " Charisma: " + Char);
-        System.out.println("Critical Strike Damage: " + critDmg + "Critical Strike Chance: " + critnum);
+        System.out.println("Critical Strike Damage: " + critDmg + "Critical Strike Chance: " +  critChance);
         System.out.println("Mastery Damage: " + masteryDamage + " Speed: " + Speed + " Avoidence: " + Avoidance);
         System.out.println("Versatility: " + versatility + " Haste: " + Haste);
         System.out.println("Your initiative is:" + (d20 + Char));
 
 
         while (!userimput.equals("Killed")) {
+            int critRate = ((critChance-(critChance % 5))/5);
+            Spell shadowBolt = new Spell(critDmg,Char,8,4,magicStaff,critRate);
+            Spell Drain = new Spell(critDmg,Char,6,2,magicStaff,critRate);
+            Spell Incinerate = new Spell(critDmg,Char,12,4,magicStaff,critRate);
+            Spell Conflagrate = new Spell(critDmg,Char,10,2,magicStaff,critRate);
+            Spell Chaos = new Spell(critDmg,Char,6,4,magicStaff,critRate);
+            Spell Shadowburn = new Spell(critDmg,Char,8,5,magicStaff,critRate);
+
             ++count;
             int damageCounter=0; int totalDamage = 0; int action = 0;
-            critnum =(critChance-(critChance % 5))/5;
+           // critnum =(critChance-(critChance % 5))/5;
             critChance += 20; // adds 20% crit chance a turn
             for(action=1; action<13; action++) {
-                damage = 0; double p=4; double r; double D=0; // these reset numbers for the next action taken
+                damage = 0; int tempDamage=0; // these reset numbers for the next action taken
                 int Cdamage=0;
                 System.out.println("Type in your attack:        attack: " + action +  " out of 12" +"         It is turn: " + count);
                 System.out.println("Shadowbolt (G1SS), Drain Life(1SS), Fear(1SS), Create Health stone, Curse of Exhaustion, Curse of Weakness, Curse of Tongues, Health Funnel, Eye of Kilrogg,");
-                System.out.println("Incinerate(G2SSF), Conflagrate(G5SSF), Chaos Bolt(1,2,3)(2SS), Havoc, Roaring Blaze, Immolate(g1sf per tick), Shadowburn, Cataclysm, and Rain of Fire");
+                System.out.println("Incinerate(G2SSF), Conflagrate(G5SSF), Chaos Bolt(2SS), Havoc, Roaring Blaze, Immolate(g1sf per tick), Shadowburn, Cataclysm, and Rain of Fire");
                 System.out.println("Curses, Health Funnel, Health stone, and Havoc can be used as a bonus action!!! DC=" + DC + " and DC= " + (DC + magicStaff) + " for Spell saving throws");
                 System.out.println();
                 userimput = scan.nextLine();
                 System.out.println("You choose " + userimput);
                 d20 = (int) (Math.random() * 20 + 1);
 
+                System.out.println("How many times did you want to cast this spell");
+                repeatSpells = scaned.nextInt();
+                if (userimput.equals("Crit")) {
+                    critChance += 20;
+                    action--;
+                }//crit buff ally can apply
                 if (userimput.equals("Shadowbolt")) {
-                    System.out.println("What do you need to crit? Answer(1,2,3)");
-
-                    altCrit = 10;
-                    Critting = (20 - critnum - altCrit);
-                    System.out.println("you need a " + Critting + " to crit");
-                    System.out.println("you rolled a: " + d20);
-                    if (d20 < Critting) {
-                        for (Ddice = 0; Ddice < 5; Ddice++) {
-                            dice = (int) (Math.random() * 8 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("final damage: " + (damage + Char));
+                    for(int i=0; i<repeatSpells; i++ ) {
+                        damage = shadowBolt.damageflatSpell();
+                        System.out.println("you did this much damage:" + damage);
+                        tempDamage += damage;
+                    action++;
                     }
-                    if (d20 >= Critting) {
-                        D=10*2;
-                        for(int i= 0; i<critDmg; i++){
-                            r = Math.ceil((D * .10)); // p and r are math variables
-                            D += r;}
-                        for (Ddice = 0; Ddice < D; Ddice++) {
-                            dice = (int) (Math.random() * 8 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("you did " + ((damage + Char)) + " damages because you crit.(I learned to code)");
-                    }
+                    action --;
+                    damage = tempDamage;
                 }//End of Shadowbolt
 
                 if (userimput.equals("Drain")) {
-                    System.out.println("What do you need to crit? Answer(1,2,3)");
-                    intTransition = scaned.next();
-                    altCrit = Integer.parseInt(intTransition);
-                    Critting = (20 - critnum - altCrit);
-                    System.out.println("you need a " + Critting + " to crit");
-                    System.out.println("you rolled a: " + d20);
-                    if (d20 < Critting) {
-                        for (Ddice = 0; Ddice < 3; Ddice++) {
-                            dice = (int) (Math.random() * 8 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("final damage: " + (damage + Char));
-                        System.out.println("add damage to hp");
+                    for(int i=0; i<repeatSpells; i++ ) {
+                    damage = Drain.damageflatSpell();
+                    System.out.println("you did this much damage:" + damage);
+                        tempDamage += damage;
+                        action++;
                     }
-                    if (d20 >= Critting) {
-                        D=6;
-                        for(int i= 0; i<critDmg; i++){
-                            r = Math.ceil((D * .10)); // p and r are math variables
-                            D += r;}
-                        for (Ddice = 0; Ddice < (D*2); Ddice++) {
-                            dice = (int) (Math.random() * 8 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("you did " + ((damage + Char)) + " damages because you crit.(I learned to code)");
-                        System.out.println("add damage to hp");
-                    }
+                    action --;
+                    damage = tempDamage;
                 }//drain
 
                 if (userimput.equals("Fear")) {
@@ -203,168 +180,92 @@ public class Main {
                 //bonus actions clumped together
 
                 if (userimput.equals("Incinerate")) {
-                    System.out.println("What do you need to crit? Answer(1,2,3)");
-                    intTransition = scaned.next();
-                    altCrit = Integer.parseInt(intTransition);
-                    Critting = (20 - critnum - altCrit);
-                    System.out.println("you need a " + Critting + " to crit");
-                    System.out.println("you rolled a: " + d20);
-                    if (d20 < Critting) {
-                        for (Ddice = 0; Ddice < 3; Ddice++) {
-                            dice = (int) (Math.random() * 12 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("you did " + ((damage + Char)) + " damage and " + ((damage + Char)) / 2 + " to enimes within 5ft and generates 2 fragments per enimy hit");
-                    }
-                    if (d20 >= Critting) {
-                        D=6;
-                        for(int i= 0; i<critDmg; i++){
-                            r = Math.ceil((D * .10)); // p and r are math variables
-                            D += r;}
-                        for (Ddice = 0; Ddice < D; Ddice++) {
-                            dice = (int) (Math.random() * 12 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("you did " + ((damage + Char)) + " damage and " + ((damage + Char)) / 2 + " to enimes within 5ft and generates 2 fragments per enimy hit");
-                    }
+                    for(int i=0; i<repeatSpells; i++ ) {
+                    Incinerate.damageflatSpell();
+                    System.out.println("you did this much damage:" + damage);
+                    tempDamage += damage;
+                    action++;
+                }
+                action --;
+                damage = tempDamage+masteryDamage;
                 }//End of Incinerate
 
                 if (userimput.equals("Conflagrate")) {
-                    System.out.println("What do you need to crit? Answer(1,2,3)");
-                    intTransition = scaned.next();
-                    altCrit = Integer.parseInt(intTransition);
-                    Critting = (20 - critnum - altCrit);
-                    System.out.println("you need a " + Critting + " to crit");
-                    System.out.println("you rolled a: " + d20);
-
-                    if (d20 < Critting) {
-                        for (Ddice = 0; Ddice < 4; Ddice++) {
-                            dice = (int) (Math.random() * 10 + 1);
-                            Cdamage = dice + Cdamage;
-                        }
-                        Cdamage=Cdamage + Char;
-                        System.out.println("Conflagrate damage: " + (Cdamage));
-                    }
-                    if (d20 >= Critting) {
-                        D=8*2;
-                        for(int i= 0; i<critDmg; i++){
-                            r = Math.ceil((D * .10)); // p and r are math variables
-                            D += r;}
-                        for (Ddice = 0; Ddice < D; Ddice++) {
-                            dice = (int) (Math.random() * 10 + 1);
-                            Cdamage = dice + Cdamage;
-                        }
-                        Cdamage=Cdamage + Char;
-                        System.out.println("Conflagrate damage: " + (Cdamage));
-                    }
+                    for(int i=0; i<repeatSpells; i++ ) {
+                    damage=0;
+                    damage = Conflagrate.damageflatSpell() + masteryDamage;
                     System.out.println("Target must make a Constitution saving throw, or take 2d10 Fire damage (half on success). In addition, you can use a bonus action to cast your next Incinerate or Chaos Bolt.");
                     System.out.println("This ability can be used an amount of times equal to your Charisma bonus, and you recover your uses on a short rest.(Roaring makes immolate Incinerate and conflag have 25% more die for 12 sec)");
-                    System.out.println("What ability do you want to use as a bonus action Incinerate or Chaos Bolt(a):");
-                    String Chaosa = "Chaosa";
-                    userimput =  Chaosa;
+                    System.out.println("Chaos Bolt casted as a bonus action to this skill:");
 
-                    if (userimput.equals("Incinerate")) {
-                        System.out.println("What do you need to crit? Answer(1,2,3)");
-                        intTransition = scaned.next();
-                        altCrit = Integer.parseInt(intTransition);
-                        Critting = (20 - critnum - altCrit);
-                        System.out.println("you need a " + Critting + " to crit");
-                        System.out.println("you rolled a: " + d20);
-
-                        if (d20 < Critting) {
-                            for (Ddice = 0; Ddice < 4; Ddice++) {
-                                dice = (int) (Math.random() * 12 + 1);
-                                damage = dice + damage;
-                            }
-                            System.out.println("you did " + ((damage + Char)) + " damage and " + ((damage + Char)) / 2 + " to enimes within 5ft and generates 2 fragments per enimy hit");
-                        }
-                        if (d20 >= Critting) {
-                            D=8*2;
-                            for(int i= 0; i<critDmg; i++){
-                                r = Math.ceil((D * .10)); // p and r are math variables
-                                D += r;}
-                            for (Ddice = 0; Ddice < D; Ddice++) {
-                                dice = (int) (Math.random() * 12 + 1);
-                                damage = dice + damage;
-                            }
-                            System.out.println("you did " + ((damage + Char)) + " damage and " + ((damage + Char)) / 2 + " to enimes within 5ft and generates 2 fragments per enimy hit");
-                        }
-                        damage = damage+Cdamage;
-                    }//End of Incinerate
-
-                    if (userimput.equals("Chaosa")) {
-                        System.out.println("What do you need to crit? Answer(1,2,3)");
-                      //  intTransition = scaned.next();
-                     //   altCrit = Integer.parseInt(intTransition);
-                        Critting = (20 - critnum - altCrit);
-                        System.out.println("you need a " + Critting + " to crit");
-                        System.out.println("you rolled a: " + d20);
-                        for (Ddice = 0; Ddice < (critnum + altCrit); Ddice++) {
-                            r = Math.ceil((p * .10)); // p and r are math variables
-                            p = p + r;
-                        }
-                        r = Math.ceil((p * .25));
-                        p = p + r;
-                        if (d20 < Critting) {
-                            for (Ddice = 0; Ddice < p; Ddice++) {
-                                dice = (int) (Math.random() * 6 + 1);
-                                damage = dice + damage;
-                            }
-                            System.out.println("final damage: " + (damage + Char));
-                        }
-                        if (d20 >= Critting) {
-                            D=(p*2);
-                            for(int i= 0; i<critDmg; i++){
-                                r = Math.ceil((D * .10)); // p and r are math variables
-                                D += r;}
-                            for (Ddice = 0; Ddice < (D); Ddice++) {
-                                dice = (int) (Math.random() * 6 + 1);
-                                damage = dice + damage;
-                            }
-                            System.out.println("final damage: " + (damage + Char));
-                        }
-                        damage = (damage)+Cdamage;
-                    }//End of Chaos(1)
+                    Cdamage = Chaos.damagescalingSpell();
+                    damage = damage + Cdamage + masteryDamage;
+                    System.out.println("you did this much damage:" + damage);
+                        tempDamage += damage;
+                        action++;
+                    }
+                    action --;
+                    damage = tempDamage+masteryDamage;
                 }//End of Conflagrate
 
-                if (userimput.equals("Chaos1")) {
-                    System.out.println("What do you need to crit? Answer(1,2,3)");
-                    intTransition = scaned.next();
-                    altCrit = Integer.parseInt(intTransition);
-                    Critting = (20 - critnum - altCrit);
-                    System.out.println("you need a " + Critting + " to crit");
-                    System.out.println("you rolled a: " + d20);
-                    for (Ddice = 0; Ddice < (critnum + altCrit); Ddice++) {
-                        r = Math.ceil((p * .10));
-                        p = p + r;
+                if (userimput.equals("Chaos")) {
+                    for(int i=0; i<repeatSpells; i++ ) {
+                    damage = Chaos.damagescalingSpell();
+                    System.out.println("you did this much damage:" + damage);
+                        tempDamage += damage;
+                        action++;
                     }
-                    if (d20 < Critting) {
-                        for (Ddice = 0; Ddice < p; Ddice++) {
-                            dice = (int) (Math.random() * 6 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("final damage: " + (damage + Char));
-                    }
-                    if (d20 >= Critting) {
-                        D=(p*2);
-                        for(int i= 0; i<critDmg; i++){
-                            r = Math.ceil((D * .10)); // p and r are math variables
-                            D += r;}
-                        for (Ddice = 0; Ddice < (D); Ddice++) {
-                            dice = (int) (Math.random() * 6 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("final damage: " + (damage + Char));
-                    }
-                }//End of Chaos(1)
+                    action --;
+                    damage = tempDamage+masteryDamage;
+                }//End of Chaos
 
                 if (userimput.equals("Havoc")) {
                     System.out.println("Havoc as a bonus action for 12 seconds. 120 foot range. This causes your single target spells to also damage the Havoc target for half of the damage (rounded up).");
                 }//end of Havoc
-
                 if (userimput.equals("Roaring")) {
                     System.out.println("Conflagrate enhances the damage of your other abilities. Conflagrate increases the damage of your Immolate, Incinerate, and Conflagrate abilities by 25% of the dice (rounded up) for 12 seconds.");
                 }//end of Roaring
+                if (userimput.equals("Shadowburn")) {
+                    for(int i=0; i<repeatSpells; i++ ) {
+                    damage = Shadowburn.damageflatSpell();
+                    System.out.println("you did this much damage:" + damage);
+                    tempDamage += damage;
+                    action++;
+                }
+                action --;
+                damage = tempDamage+masteryDamage;
+                }//End of Shadowburn
+                if (userimput.equals("Killed")) {
+                    break;
+                }
+                arrayDamage[damageCounter]=damage;
+                ++damageCounter;
+                // ++action;
+                System.out.println("______________________________________________________________________________________________________________________________");
+            }
+            for(int i=0; i< arrayDamage.length; i++){
+                totalDamage += (arrayDamage[i]);
+            }
+            System.out.println("Total damage this turn = " + totalDamage);
+            for(int i=0; i< arrayDamage.length; i++){
+                arrayDamage[i]=0;
+            }
+            System.out.println("______________________________________________________________________________________________________________________________");
+            continue;
+        }
+        System.out.println("YEAH ITS DEAD LONG LIVE THE ETERNAL FLAME");
+    }
+}
+
+
+//PERSONAL NOTES MOVING FORWARD
+// if an array does not equal zero print out its damage then set the printed damage to zero
+//if array equals zero no print but if array = something print it out with make an array for every DOT ability
+
+// set up different classes
+// have it call a method that has a crit modifier
+// maybe set up a thing that handles 3x crit so on so fourth
+
 /*
                 if (userimput.equals("Immolate")) {
                     System.out.println("What do you need to crit?");
@@ -380,7 +281,6 @@ public class Main {
                     dice5 = (int) (Math.random() * 8 + 1);
                     dice6 = (int) (Math.random() * 8 + 1);
                     dice7 = (int) (Math.random() * 8 + 1);
-
                     if (d20 < Critting) {
                         damage = dice1 + Char + 9;
                         System.out.println("you did " + damage + " damage");
@@ -392,59 +292,3 @@ public class Main {
                     }
                 }//End of Immolate WORK IN PROGRESS
 */
-                if (userimput.equals("Shadowburn")) {
-                    System.out.println("What do you need to crit? Answer(1,2,3)");
-                    intTransition = scaned.next();
-                    altCrit = Integer.parseInt(intTransition);
-                    Critting = (20 - critnum - altCrit);
-                    System.out.println("you need a " + Critting + " to crit");
-                    System.out.println("you rolled a: " + d20);
-
-                    if (d20 < Critting) {
-                        for (Ddice = 0; Ddice < 5; Ddice++) {
-                            dice = (int) (Math.random() * 8 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("final damage: " + (damage + Char));
-                    }
-                    if (d20 >= Critting) {
-                        D=10;
-                        for(int i= 0; i<critDmg; i++){
-                            r = Math.ceil((D * .10)); // p and r are math variables
-                            D += r;}
-                        for (Ddice = 0; Ddice < D; Ddice++) {
-                            dice = (int) (Math.random() * 10 + 1);
-                            damage = dice + damage;
-                        }
-                        System.out.println("final damage: " + (damage + Char));
-                    }
-                }//End of Shadowburn
-                arrayDamage[damageCounter]=damage;
-                ++damageCounter;
-                // ++action;
-                System.out.println("______________________________________________________________________________________________________________________________");
-            }
-            for(int i=0; i< arrayDamage.length; i++){
-
-                totalDamage += (arrayDamage[i]+Char+magicStaff);
-            }
-            System.out.println("Total damage this turn = " + totalDamage);
-            for(int i=0; i< arrayDamage.length; i++){
-                arrayDamage[i]=0;
-            }
-            System.out.println("______________________________________________________________________________________________________________________________");
-        }
-
-
-        System.out.println("YEAH ITS DEAD LONG LIVE THE ETERNAL FLAME");
-
-
-    }
-}
-//PERSONAL NOTES MOVING FORWARD
-// if an array does not equal zero print out its damage then set the printed damage to zero
-//if array equals zero no print but if array = something print it out with make an array for every DOT ability
-
-// set up different classes
-// have it call a method that has a crit modifier
-// maybe set up a thing that handles 3x crit so on so fourth
