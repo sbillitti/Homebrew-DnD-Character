@@ -57,20 +57,20 @@ Passive: Curse of the Mawsworn: Take twice the amount of damage, but every turn 
 ______________________________________________________________________________
 int[] Mainhand
 The Soulshaper (Main-hand)
-+60 magic staff
-+80 Charisma
-+80 Constitution
-+100% Critical Strike Chance
-+80% Mastery
-Passive: Rune Slots- You have 11 empty rune slots. When you get the killing blow against an enemy, you can choose to store their soul in one of the runes. Gain an effect based on the soul stored
-Rune of Echelon- Every time you critically strike, increase a random other secondary stat by 100% for 6 seconds. This effect can stack, but the duration cannot be increased Rune of the Venthyr Swordsman- Your critical strikes cause the target to bleed, causing them to suffer 150% of the damage taken from a crit on their next turn
-Rune of Bloodsucking: Gain 80% leech. Your Drain Life deals an additional 128d6 damage
-Rune of the Stoneborn Guardians- As an action, turn to stone, reducing your movement speed to 0, but increasing your maximum health by 550%, until the end of your next turn
++240 magic staff
++320 Charisma
++320 Constitution
++120% Critical Strike Chance
++100% Mastery
+Passive: Rune Slots- You have 12 empty rune slots. When you get the killing blow against an enemy, you can choose to store their soul in one of the runes. Gain an effect based on the soul stored
+Rune of Echelon- Every time you critically strike, increase a random other secondary stat by 120% for 6 seconds. This effect can stack, but the duration cannot be increased Rune of the Venthyr Swordsman- Your critical strikes cause the target to bleed, causing them to suffer 170% of the damage taken from a crit on their next turn
+Rune of Bloodsucking: Gain 100% leech. Your Drain Life deals an additional 512d6 damage
+Rune of the Stoneborn Guardians- As an action, turn to stone, reducing your movement speed to 0, but increasing your maximum health by 650%, until the end of your next turn
 Rune of the First Talon- You use Char instead of Dexterity for your initiative. If you attack an enemy before they take their first turn in combat, your damage from that attack is quintupled
-Rune of Defenseless Beasts: Gain 32 health
-Rune of Big Beast: Increase your current and maximum health by 200% Rune of Bonestorm:
-Sprout 2 additional heads. Each additional head has one attack, that they can use to cast spells. They are also affected by your Haste +10%
-Rune of the Enraged Spirit: Go into a Frothing Rage, causing your attacks to emit in a 40 foot radius
+Rune of Defenseless Beasts: Gain 128 health
+Rune of Big Beast: Increase your current and maximum health by 300% Rune of Bonestorm:
+Sprout 2 additional heads. Each additional head has one attack, that they can use to cast spells. They are also affected by your Haste +20%
+Rune of the Enraged Spirit: Go into a Frothing Rage, causing your attacks to emit in a 160 foot radius
 Rune of the blood god: Permanently Lose X% of your maximum health. An enemy of your choice lose X/2 % maximum health. Gain a blood shield equal to 4X% of your maximum health that lasts until destroyed. Can be used once per long rest
 ______________________________________________________________________________
 int[] offhand

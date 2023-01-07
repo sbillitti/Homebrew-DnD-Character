@@ -106,7 +106,7 @@ public class Main {
         while (!userimput.equals("Killed")) {
             int critRate = ((critChance-(critChance % 5))/5);
             Spell shadowBolt = new Spell(critDmg,Char,8,4,magicStaff,critRate);
-            Spell Drain = new Spell(critDmg,Char,6,2,magicStaff,critRate);
+            Spell Drain = new Spell(critDmg,Char,6,514,magicStaff,critRate);
             Spell Incinerate = new Spell(critDmg,Char,12,4,magicStaff,critRate);
             Spell Conflagrate = new Spell(critDmg,Char,10,2,magicStaff,critRate);
             Spell Chaos = new Spell(critDmg,Char,6,4,magicStaff,critRate);
