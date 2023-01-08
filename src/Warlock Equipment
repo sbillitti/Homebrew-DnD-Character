@@ -13,13 +13,13 @@ Sin Stained Pendant (Neck)
 ______________________________________________________________________________
 int[] shoulders
 Mantle of Ephemeral Visages (Shoulder)
-+10 AC
-+16 Charisma
-+24 Constitution
-+32% Versatility
-+56% Mastery
-+40% Speed
-+40% Avoidance
++12 AC
++32 Charisma
++48 Constitution
++64% Versatility
++100% Mastery
++60% Speed
++60% Avoidance
 ______________________________________________________________________________
 int[] chest
 Rainshadow Hauberk (Chest)
@@ -31,12 +31,12 @@ Rainshadow Hauberk (Chest)
 ______________________________________________________________________________
 int[] back
 Scarred Cloak of the Atoned (Back) (UPGRADED)
-+4 AC
-+16 Charisma
-+16 Constitution
-+28% Critical Strike Chance
-+20% Mastery
-+20% Critical Strike Damage
++7 AC
++128 Charisma
++128 Constitution
++90% Critical Strike Chance
++80% Mastery
++50% Critical Strike Damage
 ______________________________________________________________________________
 int[] wrist
 Pit Fighter's Wristguards (Wrist)
