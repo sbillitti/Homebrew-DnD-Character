@@ -34,9 +34,9 @@ Scarred Cloak of the Atoned (Back) (UPGRADED)
 +7 AC
 +128 Charisma
 +128 Constitution
-+90% Critical Strike Chance
++60% Critical Strike Chance
 +80% Mastery
-+50% Critical Strike Damage
++25% Critical Strike Damage
 ______________________________________________________________________________
 int[] wrist
 Pit Fighter's Wristguards (Wrist)
@@ -60,7 +60,7 @@ The Soulshaper (Main-hand)
 +240 magic staff
 +320 Charisma
 +320 Constitution
-+140% Critical Strike Chance
++120% Critical Strike Chance
 +120% Mastery
 Passive: Rune Slots- You have 13 empty rune slots. When you get the killing blow against an enemy, you can choose to store their soul in one of the runes. Gain an effect based on the soul stored
 Rune of Echelon- Every time you critically strike, increase a random other secondary stat by 120% for 6 seconds. This effect can stack, but the duration cannot be increased
