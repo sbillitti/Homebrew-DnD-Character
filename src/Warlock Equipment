@@ -60,10 +60,11 @@ The Soulshaper (Main-hand)
 +240 magic staff
 +320 Charisma
 +320 Constitution
-+120% Critical Strike Chance
-+100% Mastery
-Passive: Rune Slots- You have 12 empty rune slots. When you get the killing blow against an enemy, you can choose to store their soul in one of the runes. Gain an effect based on the soul stored
-Rune of Echelon- Every time you critically strike, increase a random other secondary stat by 120% for 6 seconds. This effect can stack, but the duration cannot be increased Rune of the Venthyr Swordsman- Your critical strikes cause the target to bleed, causing them to suffer 170% of the damage taken from a crit on their next turn
++140% Critical Strike Chance
++120% Mastery
+Passive: Rune Slots- You have 13 empty rune slots. When you get the killing blow against an enemy, you can choose to store their soul in one of the runes. Gain an effect based on the soul stored
+Rune of Echelon- Every time you critically strike, increase a random other secondary stat by 120% for 6 seconds. This effect can stack, but the duration cannot be increased
+Rune of the Venthyr Swordsman- Your critical strikes cause the target to bleed, causing them to suffer 170% of the damage taken from a crit on their next turn
 Rune of Bloodsucking: Gain 100% leech. Your Drain Life deals an additional 512d6 damage
 Rune of the Stoneborn Guardians- As an action, turn to stone, reducing your movement speed to 0, but increasing your maximum health by 650%, until the end of your next turn
 Rune of the First Talon- You use Char instead of Dexterity for your initiative. If you attack an enemy before they take their first turn in combat, your damage from that attack is quintupled
